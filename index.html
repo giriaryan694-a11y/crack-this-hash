@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🕹️ Hash Crack Challenge Login 🕹️</title>
+<style>
+  /* General Styles */
+  body {
+    background-color: #0d0d0d;
+    color: #00ff99;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 10px 0;
+    word-wrap: break-word;
+  }
+
+  #hashDisplay {
+    font-size: 0.9rem;
+    word-break: break-all;
+    display: block;
+    margin-top: 5px;
+  }
+
+  input {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #00ff99;
+    background-color: #1a1a1a;
+    color: #00ff99;
+    width: 250px;
+    max-width: 90%;
+    box-sizing: border-box;
+    margin-top: 10px;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 2px solid #00ff99;
+    background-color: #1a1a1a;
+    color: #00ff99;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  button:hover {
+    background-color: #00ff99;
+    color: #0d0d0d;
+    transform: scale(1.1);
+  }
+
+  #result {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    min-height: 1.5em;
+  }
+
+  footer {
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: #00ff99;
+    opacity: 0.7;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    input, button {
+      width: 90%;
+      font-size: 1rem;
+      padding: 10px;
+    }
+
+    #hashDisplay {
+      font-size: 0.85rem;
+    }
+
+    footer {
+      font-size: 0.75rem;
+    }
+  }
+</style>
+</head>
+<body>
+<h1>🕵️ Welcome to the Ultimate Hash Crack Challenge! 🕵️‍♀️</h1>
+<p>Made by Aryan Giri</p>
+<p>Here’s your SHA-256 Hash to defeat: <br><span id="hashDisplay"></span></p>
+
+<input type="text" id="password" placeholder="Enter the secret password">
+<button onclick="checkPassword()">💥 Hack It! 💥</button>
+
+<p id="result"></p>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script>
+  // ✅ Correct SHA-256 hash of "secret123"
+  const hashedPassword = "fcf730b6d95236ecd3c9fc2d92d7b6b2bb061514961aec041d6c7a7192f592e4";
+  document.getElementById("hashDisplay").textContent = hashedPassword;
+
+  const funnyFails = [
+    "🤡 Nope! Your hacking skills are... questionable.",
+    "💀 Wrong! Did you even try?",
+    "😂 Haha! Try again, code warrior!",
+    "🙈 Nope! The hash mocks you."
+  ];
+
+  const funnyWins = [
+    "🎉 You did it! The hash trembles before you!",
+    "🚀 BOOM! Password cracked like a pro!",
+    "🕵️‍♂️ Congratulations! You're the ultimate hash ninja!",
+    "🔥🔥🔥 You hacked it! Legendary!"
+  ];
+
+  function checkPassword() {
+      const input = document.getElementById("password").value.trim();
+      const inputHash = CryptoJS.SHA256(input).toString(CryptoJS.enc.Hex);
+      
+      if(inputHash === hashedPassword){
+          document.getElementById("result").textContent = funnyWins[Math.floor(Math.random() * funnyWins.length)];
+          document.body.style.backgroundColor = "#111122";
+      } else {
+          document.getElementById("result").textContent = funnyFails[Math.floor(Math.random() * funnyFails.length)];
+          document.body.style.backgroundColor = "#220000";
+      }
+  }
+</script>
+</body>
+</html>
