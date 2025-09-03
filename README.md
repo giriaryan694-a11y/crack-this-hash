@@ -12,4 +12,4 @@ A silly and fun SHA-256 hash cracking login page!
 You can host this repo using GitHub Pages:
 - Go to **Settings → Pages → Source → main branch → /root**  
 - Your site will be live at:  
-  `https://giriaryan694-a11y.github.io/crack-this-hash/`
+  https://giriaryan694-a11y.github.io/crack-this-hash/
